@@ -114,3 +114,33 @@ redis/UUID3                                 running        ap-northeast-2a  IP_H
 ```
 
 sentinel 이 자동으로 IP_HOST3 인스턴스를 master로 전환하는 것을 보여주고 이를 업데이트 함을 확인할 수 있습니다.
+
+
+### Curl Test
+
+curl 테스트를 위해서는 커맨드를 입력하는 경로에 다음 예시와 같은 ```TEST.json``` 파일이 있어야 합니다
+```
+{
+  "id": "2",
+  "name": "steve_barakatt",
+  "deviceId": "4352251",
+  "userAgent": "SonyMusicPictures",
+  "token": "e3412d3Ty",
+  "sessionId": "RTFC3Y5"
+}
+```
+#### Command
+```
+# add one user
+curl -H "Content-Type: application/json" -X POST -d @Test5.json http://localhost:8080/user/add/5
+
+# add another user
+curl -H "Content-Type: application/json" -X POST -d @Test6.json http://localhost:8080/user/add/6
+
+# get all user
+curl -H "Content-Type: application/json" -X GET http://localhost:8080/user/getAll
+
+# delete one user
+curl -H "Content-Type: application/json" -X GET http://localhost:8080/user/delete/6
+
+```
